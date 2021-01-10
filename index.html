@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Git と GitHub</title>
+  <style>
+    body {
+      width: 75%;
+      margin-left: 25%;
+      line-height: 2;
+    }
+    .red {
+      color: red;
+      font-weight: bold;
+    }
+
+    .blue {
+      color: blue;
+      font-weight: bold;
+    }
+
+    .green {
+      color: green;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <h1>Git と GitHub</h1>
+  <h2>今日覚えて欲しい事</h2>
+  <ol>
+    <li><span class="red">そもそもGit と GitHubって？？</span><br>名前が似てる様で全く違うもの。。。
+      <ul>
+        <li><span class="blue">Git</span>
+          <ul>
+            <li>自分たちが制作したソースコードの管理を行うもの。<br>
+                変更内容や変更履歴を管理してくれる。<br>
+                全てコマンドを使って操作する。<br>
+                Gitが持っているサーバーを利用して管理します。</li>
+          </ul>
+        </li>
+        <li><span class="blue">GitHub</span>
+          <ul>
+            <li>リモートサーバーの中身をWeb上で見ることができる便利なツール<br>
+                Gitのコマンドを使ってリモートサーバーにリポジトリを作ることもできるが！<br>
+                GitHubを使ってもっと簡単にリモートリポジトリを作れる！</li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><span class="red">覚えて欲しい項目</span>
+      <ul>
+        <li><span class="blue">リポジトリ</span>
+          <p>&emsp;<span class="green">リポジトリとは</span><br>
+            &emsp;&emsp;ソースコード等を保管してくれる保管庫、保存場所。<br>
+            &emsp;&emsp;ここからは銀行を例にしていきます！<br>
+            &emsp;&emsp;ではでは本題。リポジトリにも下記２つのリポジトリがある。
+          </p>
+          <ol>
+            <li><span class="green">リモートリポジトリ</span>
+              <ul>
+                <li>Gitが持っているサーバー上の保管庫。<br>
+                    →銀行のATMや金庫の様にお金を預けているところ。ソースコードを預け入れます！
+                </li>
+              </ul>
+            </li>
+            <li><span class="green">ローカルリポジトリ</span>
+              <ul>
+                <li>
+                  皆さん自身が扱っているパソコンのことWindowsやMacなど。<br>
+                  →自宅のタンス預金、自宅の金庫。
+                </li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+        <li><span class="blue">GitやGitHubで必要になる言葉と意味</span>
+          <ol>
+            <li><span class="green">クローン(clone)</span>
+              <ul>
+                <li>リモートリポジトリのファイルを新規でローカルリポジトリに複製させる処理。<br>
+                    →銀行からお金をおろして、自宅の金庫に収める。
+                </li>
+              </ul>
+            </li>
+            <li><span class="green">プル(pull)</span>
+              <ul>
+                <li>リモートリポジトリに存在する、修正、変更されたファイルをローカルに引っ張ってくる。<br>
+                    →通帳に記帳するイメージ。
+                </li>
+              </ul>
+            </li>
+            <li><span class="green">ブランチ(branch)</span>
+              <ul>
+                <li>
+                  リモートリポジトリにはメインとなるフォルダがあり、それをリリース版にする事が前提。<br>
+                  そのメインとなるフォルダから別に枝分かれさせて新しい機能や修正をする。「ブランチを切る」と言います。<br>
+                  ※ブランチを切り、枝分かれ先で変更、修正してもメイン、リリースされている物には影響なし！！<br>
+                  →「普通預金」がメインの口座。定期預金や外貨預金にブランチを切る。そこでいくら定期的に預けるかなど思案する。
+                </li>
+              </ul>
+            </li>
+            <li><span class="green">コミット(commit)</span>
+              <ul>
+                <li>変更、修正したファイルをローカルリポジトリに記録や保存、アップロードする事。<br>
+                    →臨時収入があってそのお金を一旦、自宅の金庫に保管。
+                </li>
+              </ul>
+            </li>
+            <li><span class="green">プッシュ(push)</span>
+              <ul>
+                <li>ローカルリポジトリからリモートリポジトリにアップロードする事。<br>
+                  →一旦保管しておいたお金を普通預金や定期預金等に預ける。
+                </li>
+              </ul>
+            </li>
+            <li><span class="green">マージ(merge)</span>
+              <ul>
+                <li>ブランチを切って作業したファイルをメインとなるコードに加える事。<br>
+                    →定期預金や外貨預金のお金を全て普通預金に移動させる。
+                </li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+      </ul>
+    </li>
+  </ol>
+  <ol>
+    <li>ローカルリポジトリを作る準備をしよう</li>
+    <p>まずは、自身のPCにフォルダを作ります！</p>
+    <p>でもその前にフォルダを作成するDesktopに移動しよう</p>
+    <pre>
+      <code>
+        cd desktop     ←自身のDesktopに移動します
+        mkdir sample   ←sample のところに任意の名前を入れる これでフォルダが作成できる
+        cd sample      ←sampleフォルダに移動します
+      </code>
+    </pre>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ol>
+</body>
+</html>
